@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: ArcadeMachine_Main
-    second: {fileID: 2100000, guid: e0c950a826a816f4ca187d9d2c188230, type: 2}
+    second: {fileID: 2100000, guid: 2696a23a8f6359e478b2c38cd421b7fd, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

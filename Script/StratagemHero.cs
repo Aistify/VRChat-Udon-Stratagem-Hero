@@ -1,13 +1,13 @@
 ﻿using System;
 using TMPro;
+using UdonSharp;
 using UnityEngine;
 using UnityEngine.UI;
 using VRC.SDK3.Data;
-using UdonSharp;
 using VRC.SDKBase;
-using Random = UnityEngine.Random;
 using VRC.Udon.Common.Enums;
 using VRC.Udon.Common.Interfaces;
+using Random = UnityEngine.Random;
 
 // ReSharper disable ArrangeObjectCreationWhenTypeEvident
 
@@ -254,6 +254,9 @@ namespace A1ST.StratagemHero
 
         public void GetReady()
         {
+            if (!_gameStart)
+                return;
+
             Debug.Log("Get Ready!");
 
             _gamePaused = true;
@@ -280,6 +283,9 @@ namespace A1ST.StratagemHero
 
         public void StartNewRound()
         {
+            if (!_gameStart)
+                return;
+
             Debug.Log("Starting New Round!");
 
             _perfect = true;
@@ -437,8 +443,9 @@ namespace A1ST.StratagemHero
             var currentStratagemID = roundStratagems[currentRoundIndex];
             var stratagem = _stratagemsDataList[currentStratagemID];
 
-            currentStratagemName = stratagem.DataDictionary["name"].String
-                .ToUpper()
+            currentStratagemName = stratagem
+                .DataDictionary["name"]
+                .String.ToUpper()
                 .Replace("_", " ");
 
             sequenceDisplayIndex = new int[gameScreenStratagemSequenceIcons.Length];
@@ -563,9 +570,9 @@ namespace A1ST.StratagemHero
             if (stratagemID >= roundStratagems.Length)
                 return _stratagemsDataList[0].DataDictionary["keys"].DataList;
 
-            return _stratagemsDataList[roundStratagems[stratagemID]].DataDictionary[
-                "keys"
-            ].DataList;
+            return _stratagemsDataList[roundStratagems[stratagemID]]
+                .DataDictionary["keys"]
+                .DataList;
         }
 
         private float GetXCoordinates(int stratagemID)

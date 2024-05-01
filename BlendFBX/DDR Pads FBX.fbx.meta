@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: DDR Pad_Main
-    second: {fileID: 2100000, guid: 8b80dab5fbeae884d83ee741ae6d88cd, type: 2}
+    second: {fileID: 2100000, guid: 39c5b47129d669d44bc7aabf1e2649da, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
