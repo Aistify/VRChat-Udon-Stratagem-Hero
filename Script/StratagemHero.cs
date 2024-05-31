@@ -401,9 +401,9 @@ namespace A1ST.StratagemHero
         {
             Debug.Log("Game Over!");
 
+            _gameStart = false;
             _gamePaused = true;
 
-            // Game Over Audio Visual
             gameMusic.Stop();
             sfxLose.PlayOneShot(sfxLose.clip, 1);
             for (var i = 0; i < screens.Length; i++)
@@ -414,6 +414,15 @@ namespace A1ST.StratagemHero
             OnDeserialization();
 
             SendCustomEventDelayedSeconds(nameof(ReInitializeGame), 5f, EventTiming.LateUpdate);
+        }
+
+        public void ForceReset()
+        {
+            Debug.Log("Force Reset!");
+
+            gameMusic.Stop();
+
+            SendCustomNetworkEvent(NetworkEventTarget.All, nameof(ReInitializeGame));
         }
         #endregion
 

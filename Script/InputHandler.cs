@@ -300,6 +300,9 @@ namespace A1ST.StratagemHero
 
         [UsedImplicitly]
         public void DebugMode() => stratagemHero.DebugMode();
+
+        [UsedImplicitly]
+        public void ForceReset() => stratagemHero.ForceReset();
         #endregion
 
         // ReSharper disable once InconsistentNaming
